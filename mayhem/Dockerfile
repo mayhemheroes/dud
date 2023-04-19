@@ -8,7 +8,7 @@ RUN go get github.com/dvyukov/go-fuzz/go-fuzz-dep
 RUN go get github.com/AdaLogics/go-fuzz-headers
 RUN apt update && apt install -y clang
 
-RUN go-fuzz-build -libfuzzer -o package fuzzdud.a && \
+RUN go-fuzz-build -libfuzzer -o fuzzdud.a && \
     clang -fsanitize=fuzzer fuzzdud.a -o fuzzdud.libfuzzer
 
 FROM debian:bookworm-slim
